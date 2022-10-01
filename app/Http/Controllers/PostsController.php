@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Posts;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
 
 class PostsController extends Controller
@@ -10,7 +11,7 @@ class PostsController extends Controller
     public function index()
     {
         $posts = Posts::whereNull("deleted_at")
-                        ->orderBy('id', 'DESC')->get();
+                        ->orderBy('id', 'ASC')->get();
         return response()->json($posts);
     }
 
@@ -21,5 +22,19 @@ class PostsController extends Controller
             'description'     => $request->description,
           ]);
         return response()->json($posts);
+    }
+
+    public function update(Request $request, Posts $posts)
+    {
+        $input = $request->all();
+        $posts->update($input);
+        return response()->json($posts, 200);
+    }
+
+    public function destroy(Posts $posts)
+    {
+        $posts->deleted_at = Carbon::now();
+        $posts->update();
+        return response()->json(array('success'=>true));
     }
 }
