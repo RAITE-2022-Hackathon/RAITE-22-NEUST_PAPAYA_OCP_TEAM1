@@ -11,9 +11,9 @@
         <i class=" fas fa-users"></i><span>Users</span>
     </a>
 </li>
-<li class="side-menus {{ Request::is('Users') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('Users') }}">
-        <i class=" fas fa-users"></i><span>Profile</span>
+<li class="side-menus {{ Request::is('home') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('home') }}">
+        <i class=" fas fa-users"></i><span>Posts</span>
     </a>
 </li>
 @else
@@ -24,8 +24,8 @@
     </a>
 </li>
 <li class="menu-header">Management</li>
-<li class="side-menus {{ Request::is('Users') ? 'active' : '' }}">
-    <a class="nav-link" href="{{ route('Users') }}">
+<li class="side-menus {{ Request::is('home') ? 'active' : '' }}">
+    <a class="nav-link" href="{{ route('home') }}">
         <i class=" fas fa-users"></i><span>Profile</span>
     </a>
 </li>
