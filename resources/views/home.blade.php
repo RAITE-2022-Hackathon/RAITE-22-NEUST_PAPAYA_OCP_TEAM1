@@ -10,7 +10,8 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="text-center">Dashboard Content</h3>
+                            <h3 class="text-center">Manage Your Crypto and DeFi Portfolio From One Place</h3>
+                            <p class="text-center">Securely connect the portfolio you’re using to start.</p>
                         </div>
                     </div>
                 </div>
