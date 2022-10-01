@@ -13,7 +13,7 @@
 </li>
 <li class="side-menus {{ Request::is('home') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('home') }}">
-        <i class=" fas fa-users"></i><span>Posts</span>
+        <i class=" fas fa-id-card"></i><span>Posts</span>
     </a>
 </li>
 @else
@@ -26,7 +26,7 @@
 <li class="menu-header">Management</li>
 <li class="side-menus {{ Request::is('home') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('home') }}">
-        <i class=" fas fa-users"></i><span>Profile</span>
+        <i class=" fas fa-id-card"></i><span>Profile</span>
     </a>
 </li>
 @endif
