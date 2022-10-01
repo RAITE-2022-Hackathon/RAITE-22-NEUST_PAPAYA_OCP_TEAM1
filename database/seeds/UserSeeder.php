@@ -18,6 +18,13 @@ class UserSeeder extends Seeder
                 'lname' => 'Caluag',
                 'email' => 'superadmin@gmail.com',
                 'password' => Hash::make('password'),
+            ],
+            [
+                'role_id' => 3,
+                'fname' => 'Kevins',
+                'lname' => 'Caluags',
+                'email' => 'superadmins@gmail.com',
+                'password' => Hash::make('password'),
             ]
             ]);
     }
