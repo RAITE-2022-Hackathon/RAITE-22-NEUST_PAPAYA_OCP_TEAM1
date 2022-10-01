@@ -33,7 +33,7 @@
                             <button class="btn btn-white"><i class="fas fa-paper-plane" id="createPost" style="font-size:20px; margin-left:10px; "></i></button>
                         </div>
                     </form>
-                    <div class="card">
+                    <div class="card" style="width: 50%; position: relative; left:300px">
                         <div class="card-body">
                             <h1 class="text-center">Manage Your Crypto and DeFi Portfolio From One Place</h1>
                             <p class="text-center">Securely connect the portfolio you’re using to start.</p>
