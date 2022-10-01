@@ -52,7 +52,7 @@ const state = {
     /* [Tag object] */
     // btnKey: document.getElementById("key"),
     // btnLook: document.getElementById("look"),
-    btnNew: document.getElementById("btn-new"),
+    btnNew: document.getElementById("post"),
     Userid: document.getElementById("id"),
     modalTitle: document.getElementById("modal-title"),
     btnEngrave: document.getElementById("engrave"),
@@ -66,8 +66,8 @@ const state = {
         // state.btnKey.disabled = false;
         // state.btnLook.addEventListener("click", state.ask);
         // state.btnLook.disabled = false;
-        state.btnNew.addEventListener("click", state.create);
-        state.btnNew.disabled = false;
+        state.btnNew.addEventListener("click", state.store);
+        // state.btnNew.disabled = false;
 
         state.ask();
     },
@@ -84,22 +84,30 @@ const state = {
             $(`#model-${model.id}`).length == 0
                 ? index
                 : $(`#model-${model.id}`).data("index");
-        let divcard = $("<div>", { id: `model-${model.id}`,"data-index": index,class: "card"});
+        let divcard = $("<div>", { id: `model-${model.id}`,"data-index": index,class: "card",style:"width: 50%; position: relative; left:350px"});
+        let cardheader = $("<div>", { id: `model-${model.id}`,"data-index": index,class: "card-header"});
+        let cardheaderform = $("<div>", { id: `model-${model.id}`,"data-index": index,class: "card-header-form"});
         let divcardbody = $("<div>", { class: "card-body"});
-        $("<h4>", { class:"card-title", html: model.fullName }).appendTo(divcardbody);
+        $("<h4>", { class:"card-title", html: model.fullName }).appendTo(cardheader);
+        $("<p>", { html: model.date +" || "+ model.time }).appendTo(divcardbody);
         $("<p>", { class:"card-text", html: model.description}).appendTo(divcardbody);
-        // let votebtn = $("<a>", { class:"btn btn-success btn-vote-president", id: "engrave", "data-id" : model.id});
-        // $("<i>", { class:"fas fa-check" }).appendTo(votebtn);   
+        let votebtn = $("<a>", { class:"btn btn-success", id: "engrave", "data-id" : model.id,style:"width:50px;"});
+        $("<i>", { class:"fas fa-ellipsis-v-alt" }).appendTo(votebtn);   
+
         // if(prescandidate_id.value==''){
         //     votebtn.appendTo(divcardbody);
         // }
+        
+        votebtn.appendTo(cardheaderform);
+        cardheaderform.appendTo(cardheader);
+        cardheader.appendTo(divcard);
         divcardbody.appendTo(divcard);
         $("#post-main").append(divcard);
     },
 
     create: () => {
-        state.btnEngrave.innerHTML = "Save";
-        state.btnEngrave.removeEventListener("click", state.update);
+        // state.btnEngrave.innerHTML = "Save";
+        // state.btnEngrave.removeEventListener("click", state.update);
         state.btnEngrave.addEventListener("click", state.store);
         fetch.showModal(state.entity.name);
     },
@@ -118,8 +126,8 @@ const state = {
         let model = await fetch.store(state.entity, params);
         if (model) {
             state.models.push(model);
-            fetch.writer(state.entity, model);
-            $("#modal-main").modal("hide");
+            state.writer(model);
+            // $("#modal-main").modal("hide");
         }
     },
     update: async () => {
