@@ -84,14 +84,22 @@ const state = {
             $(`#model-${model.id}`).length == 0
                 ? index
                 : $(`#model-${model.id}`).data("index");
-        let divcard = $("<div>", { id: `model-${model.id}`,"data-index": index,class: "card",style:"width: 50%; position: relative; left:350px"});
-        let cardheader = $("<div>", { id: `model-${model.id}`,"data-index": index,class: "card-header"});
-        let cardheaderform = $("<div>", { id: `model-${model.id}`,"data-index": index,class: "card-header-form"});
+
+                let divrow = $("<tr>", {
+                    id: `model-${model.id}`,
+                    "data-index": index,
+                    class:"row",
+                });
+                // alert(index);
+
+        let divcard = $("<div>", {id: `model-${model.id}`,"data-index": index,class: "card",style:"width: 50%; position: relative; left:350px"}).appendTo(divrow);
+        let cardheader = $("<div>", { id: `model-${model.id}`,class: "card-header"});
+        let cardheaderform = $("<div>", { id: `model-${model.id}`,class: "card-header-form"});
         let divcardbody = $("<div>", { class: "card-body"});
         $("<h4>", { class:"card-title", html: model.fullName }).appendTo(cardheader);
         $("<p>", { html: model.date +" || "+ model.time }).appendTo(divcardbody);
         $("<p>", { class:"card-text", html: model.description}).appendTo(divcardbody);
-        let votebtn = $("<a>", { class:"btn btn-success", id: "engrave", "data-id" : model.id,style:"width:50px;"});
+        let votebtn = $("<a>", { class:"btn btn-success btn-find", style:"width:50px;"});
         $("<i>", { class:"fas fa-ellipsis-v-alt" }).appendTo(votebtn);   
 
         // if(prescandidate_id.value==''){
@@ -102,7 +110,8 @@ const state = {
         cardheaderform.appendTo(cardheader);
         cardheader.appendTo(divcard);
         divcardbody.appendTo(divcard);
-        $("#post-main").append(divcard);
+        // divcard.appendTo(divrow);
+        $("#post-main").append(divrow);
     },
 
     create: () => {
@@ -115,10 +124,12 @@ const state = {
         state.activeIndex = i;
         state.btnEngrave.innerHTML = "Update";
 
+        console.log(state.models[0].id);
+
         state.btnEngrave.removeEventListener("click", state.store);
         state.btnEngrave.addEventListener("click", state.update);
-        state.btnEngrave.setAttribute("data-id", state.models[i].id);
-        fetch.showOnModal(state.models[i]);
+        state.btnEngrave.setAttribute("data-id", state.models[0].id);
+        fetch.showOnModal(state.models[0]);
     },
     store: async (e) => {
         e.preventDefault();

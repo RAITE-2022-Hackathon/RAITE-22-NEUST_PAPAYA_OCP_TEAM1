@@ -1,5 +1,7 @@
 @extends('layouts.app')
-
+@section('title')
+    Home
+@endsection
 @section('content')
 <section class="section">
         <div class="section-header">
@@ -15,13 +17,14 @@
                     </div>
                 </form>
             </div>
-            <div class="row">
+            <!-- <div class="row"> -->
                 <div class="col-lg-12" id="post-main">
                     
                 </div>
-            </div>
+            <!-- </div> -->
         </div>
     </section>
+    @include('posts.modal')
 @endsection
 
 @section('javascript')
