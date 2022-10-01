@@ -79,25 +79,22 @@ const state = {
         }
     },
     writer: (model) => {
-        var index = $("#president-main").length;
+        var index = $("#post-main").length;
         index =
             $(`#model-${model.id}`).length == 0
                 ? index
                 : $(`#model-${model.id}`).data("index");
-        let divcard = $("<div>", { id: `model-${model.id}`,"data-index": index,class: "card", style:"margin-left:10px; width: 25rem;"});
-        let divflex = $("<div>", { class: "d-flex justify-content-center",style:"text-align:center;" }).appendTo(divcard);
-        $("<img>", { src: "/Images/ssg.png",style: "border-radius:20px; width:100px;", class: "card-img-top", }).appendTo(divflex);
+        let divcard = $("<div>", { id: `model-${model.id}`,"data-index": index,class: "card"});
         let divcardbody = $("<div>", { class: "card-body"});
-        $("<h4>", { class:"card-title", html: "Candidate Name : " + model.fullName }).appendTo(divcardbody);
-        $("<p>", { class:"card-text", html: "Partylist Name : " + model.partylistName}).appendTo(divcardbody);
-        let votebtn = $("<a>", { class:"btn btn-success btn-vote-president", id: "engrave", "data-id" : model.id});
-        $("<i>", { class:"fas fa-check" }).appendTo(votebtn);   
-        // alert(document.getElementById("prescandidate_id").value);     
-        if(prescandidate_id.value==''){
-            votebtn.appendTo(divcardbody);
-        }
+        $("<h4>", { class:"card-title", html: model.fullName }).appendTo(divcardbody);
+        $("<p>", { class:"card-text", html: model.description}).appendTo(divcardbody);
+        // let votebtn = $("<a>", { class:"btn btn-success btn-vote-president", id: "engrave", "data-id" : model.id});
+        // $("<i>", { class:"fas fa-check" }).appendTo(votebtn);   
+        // if(prescandidate_id.value==''){
+        //     votebtn.appendTo(divcardbody);
+        // }
         divcardbody.appendTo(divcard);
-        $("#president-main").append(divcard);
+        $("#post-main").append(divcard);
     },
 
     create: () => {
