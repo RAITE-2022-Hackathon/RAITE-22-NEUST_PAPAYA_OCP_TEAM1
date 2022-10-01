@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\User;
+use App\Roles;
 use Illuminate\Http\Request;
 use Carbon\Carbon;
 
@@ -12,6 +13,15 @@ class UserController extends Controller
     {
         $users = User::whereNull("deleted_at")->get();
         return response()->json($users);
+    }
+
+    public function list()
+    { 
+        $roles= Roles::where('display_name','!=', 'Administrator')
+                    ->whereNull('deleted_at')
+                        ->orderby('id', 'asc')
+                        ->get();
+        return response()->json($roles);
     }
 
     public function save(Request $request)

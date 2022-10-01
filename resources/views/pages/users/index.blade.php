@@ -35,7 +35,10 @@
                                     <thead style="background-color: #6777ef; border-radius: 20px;">
                                         <tr>
                                             <th class="text-white">ID</th>
+                                            <th class="text-white">RoleName</th>
                                             <th class="text-white">Fullname</th>
+                                            <th class="text-white">Contact</th>
+                                            <th class="text-white">Email</th>
                                             <th class="text-white">Action</th>
                                         </tr>
                                     </thead>

@@ -10,17 +10,45 @@
             <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
                 @csrf
                 <div class="row">
+                    <input type="hidden" name="role_id" value="3">
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="first_name">Full Name:</label><span
+                            <label for="first_name">First Name:</label><span
                                     class="text-danger">*</span>
-                            <input id="firstName" type="text"
-                                   class="form-control{{ $errors->has('name') ? ' is-invalid' : '' }}"
-                                   name="name"
-                                   tabindex="1" placeholder="Enter Full Name" value="{{ old('name') }}"
+                            <input id="fname" type="text"
+                                   class="form-control{{ $errors->has('fname') ? ' is-invalid' : '' }}"
+                                   name="fname"
+                                   tabindex="1" placeholder="Enter First Name" value="{{ old('fname') }}"
                                    autofocus required>
                             <div class="invalid-feedback">
-                                {{ $errors->first('name') }}
+                                {{ $errors->first('fname') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Last Name:</label><span
+                                    class="text-danger">*</span>
+                            <input id="lname" type="text"
+                                   class="form-control{{ $errors->has('lname') ? ' is-invalid' : '' }}"
+                                   placeholder="Enter Last Name" name="lname" tabindex="1"
+                                   value="{{ old('lname') }}"
+                                   required autofocus>
+                            <div class="invalid-feedback">
+                                {{ $errors->first('lname') }}
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="email">Contact:</label>
+                            <input id="contact_num" type="number"
+                                   class="form-control{{ $errors->has('contact_num') ? ' is-invalid' : '' }}"
+                                   placeholder="Enter Contact Number" name="contact_num" tabindex="1"
+                                   value="{{ old('contact_num') }}"
+                                    autofocus>
+                            <div class="invalid-feedback">
+                                {{ $errors->first('contact_num') }}
                             </div>
                         </div>
                     </div>
@@ -30,7 +58,7 @@
                                     class="text-danger">*</span>
                             <input id="email" type="email"
                                    class="form-control{{ $errors->has('email') ? ' is-invalid' : '' }}"
-                                   placeholder="Enter Email address" name="email" tabindex="1"
+                                   placeholder="Enter Email Address" name="email" tabindex="1"
                                    value="{{ old('email') }}"
                                    required autofocus>
                             <div class="invalid-feedback">
