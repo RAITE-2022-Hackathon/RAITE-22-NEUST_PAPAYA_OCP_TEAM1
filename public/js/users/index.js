@@ -46,7 +46,7 @@ const state = {
     entity: {
         name: "user",
         attributes: [
-            "name",
+            "roleName","fullName","contact_num","email",
         ],
         actions: {
             find: ["fa fa-pencil-alt", "Edit", "info"],
@@ -75,6 +75,7 @@ const state = {
         // state.btnLook.disabled = false;
         state.btnNew.addEventListener("click", state.create);
         state.btnNew.disabled = false;
+        fetch.option_list('user', 'display_name');
 
         state.ask();
     },

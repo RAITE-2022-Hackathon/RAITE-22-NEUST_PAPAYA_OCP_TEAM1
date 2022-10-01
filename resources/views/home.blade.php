@@ -1,6 +1,7 @@
 @extends('layouts.app')
 
 @section('content')
+@if(\Illuminate\Support\Facades\Auth::user()->role_id == 1)
     <section class="section">
         <div class="section-header">
             <h3 class="page__heading">Dashboard</h3>
@@ -18,5 +19,32 @@
             </div>
         </div>
     </section>
+@else
+
+<section class="section">
+        <div class="section-header">
+            <h3 class="page__heading">Home</h3>
+        </div>
+        <div class="section-body">
+            <div class="row">
+                <div class="col-lg-12">
+                    <form>
+                        <div class="input-group">
+                            <input type="text" class="form-control" id="search" placeholder="Create Post" style="border-radius:20px; height:100px;">
+                            <button class="btn btn-primary"><i class="fas fa-paper-plane" id="createPost" style="font-size:20px; margin-left:10px;"></i></button>
+                        </div>
+                    </form>
+                    <div class="card">
+                        <div class="card-body">
+                            <h3 class="text-center">Dashboard Content</h3>
+                            <p>asdasdibhbhb</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    @endif
 @endsection
 

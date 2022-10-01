@@ -16,7 +16,7 @@ class User extends Authenticatable
      * @var array
      */
     protected $fillable = [
-        'name', 'email', 'password',
+        'role_id','fname','lname','contact_num', 'email', 'password',
     ];
 
     /**
@@ -28,6 +28,24 @@ class User extends Authenticatable
         'password', 'remember_token',
     ];
 
+    protected $appends = [
+        'fullName',
+        'roleName',
+    ];
+
+    public function getFullNameAttribute()
+    {
+        $fn=$this->fname.' '.$this->lname;
+        return  strtoupper($fn);
+    }
+
+    public function getRoleNameAttribute()
+    {
+        if($this->role){
+            return $this->role->display_name;
+        }
+    }
+
     /**
      * The attributes that should be cast to native types.
      *
@@ -36,4 +54,7 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function role(){return $this->belongsTo(Roles::class);}
+
 }
