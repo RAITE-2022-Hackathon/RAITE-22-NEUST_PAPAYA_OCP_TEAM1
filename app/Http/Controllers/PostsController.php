@@ -24,6 +24,16 @@ class PostsController extends Controller
         return response()->json($posts);
     }
 
+    public function updateLikes(Request $request, Posts $posts)
+    {
+        $posts=[
+            'likes'     => $request->likes+1,
+            'id'     => $request->id,
+        ];
+        $posts->update($posts);
+        return response()->json($posts, 200);
+    }
+
     public function update(Request $request, Posts $posts)
     {
         $input = $request->all();

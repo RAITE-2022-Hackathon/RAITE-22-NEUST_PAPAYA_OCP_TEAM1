@@ -15,7 +15,7 @@
 
                                 <div class="input-group mb-12">
                                     <span class="input-group-text">Description</span>
-                                    <input type="text" id="description" name="description" class="form-control">
+                                    <textarea class="form-control" id="description" name="description" placeholder="Create Post" style="border-radius:10px; height:100px;"></textarea>
                                 </div>
 
                         </div>

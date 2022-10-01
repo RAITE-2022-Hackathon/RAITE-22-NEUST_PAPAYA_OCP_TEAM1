@@ -33,5 +33,6 @@ Route::prefix('/posts')->group(function()
     Route::post('/save', 'PostsController@save'); 
     Route::get('/list', 'PostsController@list'); 
     Route::put('/{posts}/update', 'PostsController@update');
+    Route::put('/{posts}/updateLikes', 'PostsController@updateLikes');
     Route::delete('/{posts}/destroy', 'PostsController@destroy');  
 });
