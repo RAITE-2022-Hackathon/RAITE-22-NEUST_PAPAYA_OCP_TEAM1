@@ -86,18 +86,31 @@ const state = {
                     "data-index": model.id-1,
                     class:"row",
                 });
+<<<<<<< HEAD
+                // alert(index);
+        
+        let divcard = $("<div>", {id: `model-${model.id}`,"data-index": index,class: "card",style:"width: 50%; position: relative; left:345px; padding:20px"}).appendTo(divrow);
+=======
 
         let divcard = $("<div>", {id: `model-${model.id}`,class: "card",style:"width: 50%; position: relative; left:350px"}).appendTo(divrow);
+>>>>>>> 2ec5fc0e7eaca71d16e1f224a779fd236c64c218
         let cardheader = $("<div>", { id: `model-${model.id}`,class: "card-header"});
         let cardheaderform = $("<div>", { id: `model-${model.id}`,class: "card-header-form"});
         let divcardbody = $("<div>", { class: "card-body"});
         $("<h4>", { class:"card-title", html: model.fullName }).appendTo(cardheader);
         $("<p>", { html: model.date +" || "+ model.time }).appendTo(divcardbody);
         $("<p>", { class:"card-text", html: model.description}).appendTo(divcardbody);
+<<<<<<< HEAD
+        let votebtn = $("<a>", { class:"btn btn-success btn-find", style:"width:50px;"});
+        $("<i>", { class:"fas fa-ellipsis-v-alt" }).appendTo(votebtn);  
+        $("<i>", { class:"fas fa-thumbs-up btn btn-primary" , style: "font-size:1.5em; margin-top:10px; margin:5px;"}).appendTo(divcardbody);  
+        $("<i>", { class:"fas fa-comment-alt-lines btn btn-primary" , style: "font-size:1.5em; margin-top:10px; margin:5px; margin-left:10px"}).appendTo(divcardbody);
+=======
         let votebtn = $("<a>", { class:"btn btn-success btn-find", "data-index": model.id-1,"data-id": model.id,style:"width:50px;"});
         $("<i>", { class:"fas fa-pencil-alt" }).appendTo(votebtn);
         let votebtn1 = $("<a>", { class:"btn btn-danger btn-delete", "data-index": model.id-1,"data-id": model.id,style:"width:50px;"});
         $("<i>", { class:"fas fa-trash-alt" }).appendTo(votebtn1);
+>>>>>>> 2ec5fc0e7eaca71d16e1f224a779fd236c64c218
 
         
         votebtn.appendTo(cardheaderform);
@@ -107,6 +120,7 @@ const state = {
         divcardbody.appendTo(divcard);
         // divcard.appendTo(divrow);
         $("#post-main").append(divrow);
+        
     },
 
     create: () => {
