@@ -11,8 +11,7 @@
                 <div class="col-lg-12">
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="text-center">Manage Your Crypto and DeFi Portfolio From One Place</h3>
-                            <p class="text-center">Securely connect the portfolio you’re using to start.</p>
+
                         </div>
                     </div>
                 </div>
@@ -30,14 +29,14 @@
                 <div class="col-lg-12">
                     <form>
                         <div class="input-group">
-                            <input type="text" class="form-control" id="search" placeholder="Create Post" style="border-radius:20px; height:100px;">
-                            <button class="btn btn-primary"><i class="fas fa-paper-plane" id="createPost" style="font-size:20px; margin-left:10px;"></i></button>
+                            <input type="text" class="form-control" id="search" placeholder="Create Post" style="border-radius:20px; height:50px;">
+                            <button class="btn btn-white"><i class="fas fa-paper-plane" id="createPost" style="font-size:20px; margin-left:10px; "></i></button>
                         </div>
                     </form>
                     <div class="card">
                         <div class="card-body">
-                            <h3 class="text-center">Dashboard Content</h3>
-                            <p>asdasdibhbhb</p>
+                            <h1 class="text-center">Manage Your Crypto and DeFi Portfolio From One Place</h1>
+                            <p class="text-center">Securely connect the portfolio you’re using to start.</p>
                         </div>
                     </div>
                 </div>
