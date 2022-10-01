@@ -36,7 +36,7 @@
 <li class="menu-header">Management</li>
 <li class="side-menus {{ Request::is('Users') ? 'active' : '' }}">
     <a class="nav-link" href="{{ route('Users') }}">
-        <i class=" fas fa-users"></i><span>My Profile</span>
+        <i class=" fas fa-users"></i><span>Profile</span>
     </a>
 </li>
 @endif

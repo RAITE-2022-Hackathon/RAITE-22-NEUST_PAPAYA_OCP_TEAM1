@@ -26,3 +26,12 @@ Route::prefix('/users')->group(function()
     Route::put('/{users}/update', 'UserController@update');
     Route::delete('/{users}/destroy', 'UserController@destroy');  
 });
+
+Route::prefix('/posts')->group(function() 
+{
+    Route::get('/', 'PostsController@index');
+    Route::post('/save', 'PostsController@save'); 
+    Route::get('/list', 'PostsController@list'); 
+    Route::put('/{posts}/update', 'PostsController@update');
+    Route::delete('/{posts}/destroy', 'PostsController@destroy');  
+});
